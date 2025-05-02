@@ -172,3 +172,15 @@ Para testes de integração que requerem Redis:
 # Certifique-se de que o Redis está rodando
 TEST_INTEGRATION=1 go test ./internal/ratelimiter/store/...
 ```
+
+# Testar requisição sem token
+curl http://localhost:8080/test
+
+# Testar requisição com token
+curl -H "API_KEY: meu-token" http://localhost:8080/test
+
+# Executar o script de teste automatizado
+./scripts/test.sh
+
+# Executar teste de carga
+./scripts/load_test.sh --users 5 --requests 10 --tokens
